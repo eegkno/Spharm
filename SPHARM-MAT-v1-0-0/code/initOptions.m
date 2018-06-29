@@ -72,7 +72,7 @@ userdataHandle.ParamPDM.args = [1 1 200 20];
 userdataHandle.ParamPDM.inFilter = {'*.gipl;*.hdr', 'Bianry Objects (*.gipl, *hdr)'};
 userdataHandle.ParamPDM.default = {'500','1','./',''};
 userdataHandle.ParamPDM.path = '';
-userdataHandle.ParamPDM.command = 'GenParaMeshCLP';
+userdataHandle.ParamPDM.command = 'GenParaMesh';
 userdataHandle.ParamPDM.exist = 0;
 
 for i=1:length(userdataHandle.ParamPDM.vars)
@@ -247,13 +247,13 @@ for i=1:length(userdataHandle.res_PCA.vars)
     end
 end
 
-% PDM topology fix (SegPostProcessCLP)
+% PDM topology fix (SegPostProcess)
 userdataHandle.PDM_Fix.vars = {'space','OutDirectory', 'others'};
 userdataHandle.PDM_Fix.args = [3 200 20];
 userdataHandle.PDM_Fix.inFilter = {'*.gipl;*.hdr', 'Bianry Objects (*.gipl, *hdr)'};
 userdataHandle.PDM_Fix.default = {'0.75,0.75,0.75','./',''};
 userdataHandle.PDM_Fix.path = '';
-userdataHandle.PDM_Fix.command = 'SegPostProcessCLP';
+userdataHandle.PDM_Fix.command = 'SegPostProcess';
 userdataHandle.PDM_Fix.exist = 0;
 
 for i=1:length(userdataHandle.PDM_Fix.vars)
@@ -266,7 +266,6 @@ for i=1:length(userdataHandle.PDM_Fix.vars)
         eval(strCC);
     end
 end
-
 
 % InHouse topology fixing method
 userdataHandle.InHouse_Fix.vars = {'Connectivity','Epsilon','OutDirectory'};

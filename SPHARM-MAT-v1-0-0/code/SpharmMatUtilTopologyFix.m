@@ -59,14 +59,14 @@ for i = 1:numSbj
                         end
                         vals=[valStr num2str(vals(end))];
                     end
-                    optionSTR = [optionSTR ' ' sprintf('--%s ', confs.vars{j}) vals];
+                    optionSTR = [optionSTR ' ' sprintf('-%s ', confs.vars{j}) vals];
                 elseif (confs.args(j) < 200) & (confs.args(j) >= 10) & ~isempty(deblank(vals)) & ~strcmp(confs.vars{j}, 'others')
-                    optionSTR = [optionSTR ' ' sprintf('--%s ', confs.vars{j}) vals];                    
+                    optionSTR = [optionSTR ' ' sprintf('-%s ', confs.vars{j}) vals];                    
                 elseif (confs.args(j) < 200) & (confs.args(j) >= 10) & ~isempty(deblank(vals)) & strcmp(confs.vars{j}, 'others')
                     optionSTR = [optionSTR ' ' vals];                    
                 end
             end
-
+            
             new_name = sprintf('%s/%s_fix%s',pa,na,ex);
             if exist(new_name,'file')
                 prompt = {'Enter new filename:'};
@@ -79,7 +79,7 @@ for i = 1:numSbj
             
             if ispc
                 new_name = sprintf('tmp/%s_fix%s',na,ex);
-                optionSTR=[optionSTR '  ' new_name];
+                optionSTR=[optionSTR ' -o ' new_name];
                 wdir = sprintf('%s/tmp',confs.path);
                 if ~exist(wdir,'dir')
                     mkdir(wdir);
@@ -88,15 +88,13 @@ for i = 1:numSbj
                 [p,fname,ext] = fileparts(file);
                 cSTR = sprintf('!%s tmp/%s %s', confs.command, [fname ext], optionSTR);               
             elseif isunix
-                optionSTR=[optionSTR '  ' new_name];
+                optionSTR=[optionSTR ' -o ' new_name];
                 cSTR = sprintf('!./%s %s %s', confs.command, file, optionSTR);
             elseif ismac
-                optionSTR=[optionSTR '  ' new_name]
-                cSTR = sprintf('!./%s %s %s', confs.command, file, optionSTR);               
+                optionSTR=[optionSTR ' -o ' new_name];
+                cSTR = sprintf('!./%s %s %s', confs.command, file, optionSTR);                
             end
             
-            
-
             curPath = pwd;
             cd(confs.path);
             eval(cSTR);

@@ -29,13 +29,15 @@
 %
 
 function vnorm = get_vertexnormals(vs,fs)
-
-f = figure;
-p = patch('vertices',vs,'faces',fs);
-vnorm = - get(p,'vertexnormals');
-vnlen = sqrt(sum(vnorm.^2,2));
-vnorm = vnorm./vnlen(:,[1 1 1]);
-vnlen = sqrt(sum(vnorm.^2,2));
-close(f);
+    f = figure;
+    p = patch('vertices',vs,'faces',fs);
+    %vnorm = - get(p,'VertexNormals');
+    FV.vertices = p.Vertices;
+    FV.faces = p.Faces;
+    vnorm = - patchnormals(FV);
+    vnlen = sqrt(sum(vnorm.^2,2));
+    vnorm = vnorm./vnlen(:,[1 1 1]);
+    vnlen = sqrt(sum(vnorm.^2,2));
+    close(f);
 
 return;

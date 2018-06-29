@@ -141,7 +141,7 @@ switch method
         if (options.PDM_Fix.exist == 0)
             errordlg(sprintf('%s function does not exist in the PDM directory, %s',options.PDM_Fix.command, options.PDM_path));
             return;
-        elseif (strcmp('.gipl', ext) | strcmp('.hdr',ext)) & strcmp(confs.TopologyFix, 'SegPostProcessCLP')
+        elseif (strcmp('.gipl', ext) | strcmp('.hdr',ext)) & strcmp(confs.TopologyFix, 'SegPostProcess')
             disp('Fixing bad topology');
             % Load options and run PDM_Fix
             options.PDM_Fix.space=[];
@@ -157,7 +157,7 @@ switch method
         elseif isempty(options.objs)
             errordlg('Error during topology fixing. List of filenames is empty');
             return;
-        elseif (strcmp('.gipl', ext) | strcmp('.hdr',ext)) & strcmp(confs.ParamPDM, 'GenParaMeshCLP')
+        elseif (strcmp('.gipl', ext) | strcmp('.hdr',ext)) & strcmp(confs.ParamPDM, 'GenParaMesh')
             disp('Parameterize objects');
             % Load options and run ParamPDM
             options.ParamPDM.iter=[];

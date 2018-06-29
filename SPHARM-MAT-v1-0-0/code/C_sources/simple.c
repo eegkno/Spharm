@@ -30,6 +30,8 @@ at http://people.csail.mit.edu/fsegonne/research/Topology/topology_02.html
 
 #include "mex.h"
 #include "topological_numbers.h"
+#include <string.h> /* memset */
+#include <unistd.h> /* close */
 
 void mexFunction(int nlhs, mxArray *plhs[], int nrhs,
                  const mxArray *prhs[])

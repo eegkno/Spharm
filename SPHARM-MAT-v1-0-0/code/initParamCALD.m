@@ -61,8 +61,9 @@ if size(faces,2)==4
     dif1 = faces(:,1)-faces(:,2); dif2=faces(:,2)-faces(:,3); dif3=faces(:,3)-faces(:,1);
     indDif1 = find(dif1 == 0);
     indDif2 = find(dif2 == 0);
-    indDif3 = find(dif3 == 0);
-    indDif = union(indDif1, indDif2, indDif3);
+    indDif3 = find(dif3 == 0)
+    %indDif = union(indDif1, indDif2, indDif3);
+    indDif = union(indDif1, indDif2);
     ufIDX = setdiff([1:size(faces,1)], indDif);
     faces = faces(ufIDX,:);
 end
@@ -519,12 +520,12 @@ disp(sprintf('South Pole : %05d (%f, %f) pi',landmarks(2),0,0.5));
 values = phi.^2 + (theta+pi/2).^2;
 [value, east] = min(values);
 landmarks(3) = east; % center of east hemisphere
-disp(sprintf('East Center: %05d (%f, %f) pi',east,theta(east)/pi,phi(east)/pi));
+%disp(sprintf('East Center: %05d (%f, %f) pi',east,theta(east)/pi,phi(east)/pi));
 
 values = phi.^2 + (theta-pi/2).^2;
 [value, west] = min(values);
 landmarks(4) = west; % center of west hemisphere
-disp(sprintf('West Center: %05d (%f, %f) pi',west,theta(west)/pi,phi(west)/pi));
+%disp(sprintf('West Center: %05d (%f, %f) pi',west,theta(west)/pi,phi(west)/pi));
 
 return;
 

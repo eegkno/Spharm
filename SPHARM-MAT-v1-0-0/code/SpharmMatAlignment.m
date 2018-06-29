@@ -42,9 +42,8 @@ outNames = {};
 h = waitbar(0,'Please wait...');
 for i = 1:numSbj
     file = objs{i};
-    %[path, name, ext, ver] = fileparts(file);
     [path, name, ext] = fileparts(file);
-
+    
     switch method
         case 'AligSHREC'
             diary(fullfile([confs.OutDirectory '/Logs'],[date, '_', num2str(round(cputime)), '_' name '_AlignSHREC.log']));
