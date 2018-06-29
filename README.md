@@ -1,11 +1,11 @@
 Installation of Spharm toolkit in MacOS
 ===================
 
-##Tested on:
-OS X El Capitan version 10.11.6
-Matlab 2016b, 64-bit
+Tested on:
+* OS X El Capitan version 10.11.6
+* Matlab 2016b, 64-bit
 
-##Download, Installation and Tutorial
+Download, Installation and Tutorial
 
 SPHARM-MAT
 http://imaging.indyrad.iupui.edu/projects/SPHARM/?page_id=22
